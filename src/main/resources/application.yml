@@ -1,4 +1,6 @@
 micronaut:
   application:
     name: orderSvc
+  server:
+    port: 8080
 kafka.bootstrap.servers: localhost:9092
