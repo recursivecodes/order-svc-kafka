@@ -2,8 +2,6 @@ package codes.recursive.service;
 
 import codes.recursive.domain.Order;
 import codes.recursive.messaging.OrderProducer;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.inject.Singleton;
 import java.util.ArrayList;
@@ -38,11 +36,7 @@ public class OrderService {
     public Order newOrder(Order order) {
         order.setId((long) orders.size());
         this.orders.add(order);
-        try {
-            orderProducer.sendMessage(UUID.randomUUID().toString(), new ObjectMapper().writeValueAsString(order));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        orderProducer.sendMessage(UUID.randomUUID().toString(), order);
         return order;
     }
 }
