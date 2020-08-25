@@ -3,4 +3,12 @@ micronaut:
     name: orderSvc
   server:
     port: 8080
-kafka.bootstrap.servers: localhost:9092
+kafka:
+  bootstrap:
+    servers: streaming.us-phoenix-1.oci.oraclecloud.com:9092
+  security:
+    protocol: SASL_SSL
+  sasl:
+    mechanism: PLAIN
+    jaas:
+      config: ${KAFKA_SASL_JAAS_CONFIG}
