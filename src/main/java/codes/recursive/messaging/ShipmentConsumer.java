@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 public class ShipmentConsumer {
 
     private static final Logger LOG = LoggerFactory.getLogger(ShipmentConsumer.class);
-
     private final OrderService orderService;
 
     public ShipmentConsumer(OrderService orderService) {
