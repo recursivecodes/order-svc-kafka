@@ -30,7 +30,7 @@ public class ShipmentConsumer {
         return shipmentFlowable.doOnSuccess(shipment -> {
             LOG.info("Shipment message received!");
             LOG.info("Updating order shipment status...");
-            Order order = this.orderService.getOrderById(shipment.getOrderId());
+            Order order = orderService.getOrderById(shipment.getOrderId());
             order.setShipmentStatus(ShipmentStatus.SHIPPED);
             orderService.updateOrder(order);
             LOG.info("Order shipment status updated!");
