@@ -14,7 +14,7 @@ public class Order {
         this.id = id;
         this.customerId = customerId;
         this.totalCost = totalCost;
-        this.shipmentStatus = shipmentStatus;
+        this.shipmentStatus = shipmentStatus != null ? shipmentStatus : ShipmentStatus.PENDING;
     }
 
     public Long getId() {
